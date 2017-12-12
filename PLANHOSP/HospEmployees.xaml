@@ -1,0 +1,71 @@
+﻿<Window x:Class="PLANHOSP.HospEmployees"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PLANHOSP"
+        mc:Ignorable="d"
+        Title="HospEmployees" Height="500" Width="500">
+    <Window.DataContext>
+        <local:FicheEmployeVueModel></local:FicheEmployeVueModel>
+    </Window.DataContext>
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="Label">
+                <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                <Setter Property="TextAlignment" Value="Center"></Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">Identité Employé</Label>
+        <Label Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">Fiche Employé</Label>
+        <Rectangle Grid.Column="2" Grid.Row="0" Grid.RowSpan="6" Fill="Black"></Rectangle>
+        <Label Grid.Row="1" Grid.Column="0">Nom:</Label>
+        <Label Grid.Row="2" Grid.Column="0">Prénom:</Label>
+        <Label Grid.Row="3" Grid.Column="0">Date de Naissance:</Label>
+        <Label Grid.Row="4" Grid.Column="0">Age:</Label>
+        <Label Grid.Row="5" Grid.Column="0">Poste Occupé:</Label>
+
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding FicheEmployeSelectionnee.Nom, Mode=TwoWay}"></TextBox>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding FicheEmployeSelectionnee.Prenom, Mode=TwoWay}"></TextBox>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding FicheEmployeSelectionnee.DateDeNaissance, Mode=TwoWay}"></TextBox>
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding FicheEmployeSelectionnee.Age, Mode=TwoWay}"></TextBox>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding FicheEmployeSelectionnee.PosteOccupe, Mode=TwoWay}"></TextBox>
+        <ListBox x:Name="listeFichesEmploye"  Grid.Column="3" Grid.RowSpan="5" Grid.Row="1" ItemsSource="{Binding FichesEmploye}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="*"></Label>
+                        <Label Content="{Binding Nom}"></Label>
+                        <Label Content="{Binding Prenom}"></Label>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="Ajouter" Grid.Column="4" Grid.Row="1" Command="{Binding AjoutFicheEmploye}" CommandParameter="{Binding ElementName=listeFichesEmploye}" />
+        <Button Content="Retirer" Grid.Column="4" Grid.Row="2" Command="{Binding RetraitFicheEmploye}" CommandParameter="{Binding ElementName=listeFichesEmploye,Path=SelectedItem}" />
+        <Button Content="Editer" Grid.Column="4" Grid.Row="3" Command="{Binding EditionFicheEmploye}" CommandParameter="{Binding ElementName=listeFichesEmploye, Path=SelectedItem}" />
+    </Grid>
+</Window>
