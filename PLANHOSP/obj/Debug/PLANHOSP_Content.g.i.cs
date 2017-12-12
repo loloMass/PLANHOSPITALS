@@ -8,7 +8,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("hospemployeebddmodel.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("hospemployeebddmodel.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ficheemployebdd.mdf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ficheemployebddmodel.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ficheemployebddmodel.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ficheemployebdd_log.ldf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("hospemployeesbdd.mdf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("hospemployeesbddmodel.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("hospemployeesbddmodel.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("hospemployeesbdd_log.ldf")]
 
 

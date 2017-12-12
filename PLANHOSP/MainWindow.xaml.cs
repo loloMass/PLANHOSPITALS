@@ -30,7 +30,7 @@ namespace PLANHOSP
             HospEmployees fenetre = new HospEmployees();
             fenetre.Show();
             MainWindow main = new MainWindow();
-            main.Close();
+            main.Hide();
         }
     }
 }

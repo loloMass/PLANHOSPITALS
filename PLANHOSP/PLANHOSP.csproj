@@ -13,6 +13,7 @@
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -25,7 +26,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -78,9 +78,45 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FicheEmployeBDDModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FicheEmployeBDDModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FicheEmployeBDDModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FicheEmployeBDDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FicheEmployeBDDModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FicheEmployeBDDModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="FicheEmployeTable.cs">
+      <DependentUpon>FicheEmployeBDDModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="FicheEmployeVueModel.cs" />
     <Compile Include="HospEmployees.xaml.cs">
       <DependentUpon>HospEmployees.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HospEmployeesBDDModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HospEmployeesBDDModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HospEmployeesBDDModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HospEmployeesBDDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HospEmployeesBDDModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HospEmployeesBDDModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="HospEmployeeTable.cs">
+      <DependentUpon>HospEmployeesBDDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="HospiEmployees.cs" />
     <Compile Include="RelayCommand.cs" />
@@ -119,6 +155,20 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="HospEmployeesBDDModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HospEmployeesBDDModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="FicheEmployeBDDModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FicheEmployeBDDModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="FicheEmployeBDDModel.edmx.diagram">
+      <DependentUpon>FicheEmployeBDDModel.edmx</DependentUpon>
+    </None>
+    <None Include="HospEmployeesBDDModel.edmx.diagram">
+      <DependentUpon>HospEmployeesBDDModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -145,6 +195,42 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FicheEmployeBDD.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FicheEmployeBDDModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FicheEmployeBDDModel.edmx</DependentUpon>
+      <LastGenOutput>FicheEmployeBDDModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="FicheEmployeBDDModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FicheEmployeBDDModel.edmx</DependentUpon>
+      <LastGenOutput>FicheEmployeBDDModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="FicheEmployeBDD_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>FicheEmployeBDD.mdf</DependentUpon>
+    </Content>
+    <Content Include="HospEmployeesBDD.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HospEmployeesBDDModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HospEmployeesBDDModel.edmx</DependentUpon>
+      <LastGenOutput>HospEmployeesBDDModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="HospEmployeesBDDModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HospEmployeesBDDModel.edmx</DependentUpon>
+      <LastGenOutput>HospEmployeesBDDModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="HospEmployeesBDD_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>HospEmployeesBDD.mdf</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
